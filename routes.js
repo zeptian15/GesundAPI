@@ -12,20 +12,20 @@ module.exports = (app) => {
     app.route('/')
         .get(users.index);
 
-    app.route('/users')
-        .get(users.users);
+    // app.route('/users')
+    //     .get(users.users);
 
-    app.route('/users/:user_id')
-        .get(users.findUsers);
+    // app.route('/users/:user_id')
+    //     .get(users.findUsers);
 
-    app.route('/users')
-        .post(users.createUsers);
+    // app.route('/users')
+    //     .post(users.createUsers);
 
-    app.route('/users')
-        .put(users.updateUsers);
+    // app.route('/users')
+    //     .put(users.updateUsers);
 
-    app.route('/users')
-        .delete(users.deleteUsers);
+    // app.route('/users')
+    //     .delete(users.deleteUsers);
 
     // Food 
     app.route('/foods')
