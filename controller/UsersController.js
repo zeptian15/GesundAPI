@@ -14,7 +14,7 @@
 // };
 
 exports.index = (req, res) => {
-    res.sendFile('../image.html');
+    res.sendFile('index.html', { root: '.' });
 };
 
 // exports.findUsers = (req, res) => {

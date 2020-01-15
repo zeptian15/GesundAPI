@@ -2,11 +2,11 @@
 
 module.exports = (app) => {
     // Controller
-    var users = require('./controller/UsersController');
-    var foods = require('./controller/FoodController');
-    var sports = require('./controller/SportController');
-    var diseases = require('./controller/DiseaseController');
-    var diets = require('./controller/DietController');
+    var users = require('../controller/UsersController');
+    var foods = require('../controller/FoodController');
+    var sports = require('../controller/SportController');
+    var diseases = require('../controller/DiseaseController');
+    var diets = require('../controller/DietController');
 
     // Users
     app.route('/')
