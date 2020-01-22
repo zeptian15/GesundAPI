@@ -29,8 +29,10 @@ exports.findDiseases = (req, res) => {
 
 exports.createDiseases = (req, res) => {
     var nama = req.body.nama;
+    var rekomendasi_olahraga = req.body.rekomendasi_olahraga;
+    var alasan_penyakit = req.body.alasan_penyakit;
 
-    sqlite.run('INSERT INTO penyakit (nama) VALUES (?)', [nama], (error, rows, fields) => {
+    sqlite.run('INSERT INTO penyakit (nama, rekomendasi_olahraga, alasan_penyakit) VALUES (?,?,?)', [nama, rekomendasi_olahraga, alasan_penyakit], (error, rows, fields) => {
         if(error){
             res.status(404)
             response.ok("Gagal menambahkan penyakit!", res)
@@ -44,8 +46,10 @@ exports.createDiseases = (req, res) => {
 exports.updateDiseases = (req, res) => {
     var diseases_id = req.body.diseases_id;
     var nama = req.body.nama;
+    var rekomendasi_olahraga = req.body.rekomendasi_olahraga;
+    var alasan_penyakit = req.body.alasan_penyakit;
 
-    sqlite.run('UPDATE penyakit SET nama = ? WHERE id = ?', [nama, diseases_id], (error, rows, fields) => {
+    sqlite.run('UPDATE penyakit SET nama = ?, rekomendasi_penyakit = ?, alasan_penyakit = ? WHERE id = ?', [nama,rekomendasi_olahraga,alasan_penyakit, diseases_id], (error, rows, fields) => {
         if(error){
             res.status(404)
             response.ok("Gagal mengubah penyakit!", res)
