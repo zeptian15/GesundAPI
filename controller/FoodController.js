@@ -33,8 +33,9 @@ exports.createFoods = (req, res) => {
     var jenis = req.body.jenis;
     var kategori = req.body.kategori;
     var kalori = req.body.kalori;
+    var gambar = req.body.gambar;
 
-    sqlite.run('INSERT INTO makanan (nama, jenis, kategori, kalori) VALUES (?,?,?,?)', [nama, jenis, kategori, kalori], (error, rows, fields) => {
+    sqlite.run('INSERT INTO makanan (nama, jenis, kategori, kalori, gambar) VALUES (?,?,?,?,?)', [nama, jenis, kategori, kalori,gambar], (error, rows, fields) => {
         if(error){
             res.status(404)
             response.ok("Gagal menambahkan makanan!", res)
@@ -51,8 +52,9 @@ exports.updateFoods = (req, res) => {
     var jenis = req.body.jenis;
     var kategori = req.body.kategori;
     var kalori = req.body.kalori;
+    var gambar = req.body.gambar;
 
-    sqlite.run('UPDATE makanan set nama = ?, jenis = ?, kategori = ?, kalori = ? WHERE id = ?', [nama,jenis,kategori,kalori,food_id], (error, rows, fields) => {
+    sqlite.run('UPDATE makanan set nama = ?, jenis = ?, kategori = ?, kalori = ?, gambar = ? WHERE id = ?', [nama,jenis,kategori,kalori, gambar,food_id], (error, rows, fields) => {
         if(error){
             res.status(404)
             response.ok("Gagal mengubah makanan!", res)

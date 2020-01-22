@@ -32,8 +32,9 @@ exports.createSports = (req, res) => {
     var nama = req.body.nama;
     var jenis = req.body.jenis;
     var rekomendasi_waktu = req.body.rekomendasi_waktu;
+    var gambar = req.body.gambar;
 
-    sqlite.run('INSERT INTO olahraga (nama, jenis, rekomendasi_waktu) VALUES (?,?,?)', [nama,jenis,rekomendasi_waktu], (error,rows,fields) => {
+    sqlite.run('INSERT INTO olahraga (nama, jenis, rekomendasi_waktu, gambar) VALUES (?,?,?,?)', [nama,jenis,rekomendasi_waktu, gambar], (error,rows,fields) => {
         if(error){
             res.status(404)
             response.ok("Gagal menambahkan olahraga!", res)
@@ -49,8 +50,9 @@ exports.updateSports = (req, res) => {
     var nama = req.body.nama;
     var jenis = req.body.jenis;
     var rekomendasi_waktu = req.body.rekomendasi_waktu;
+    var gambar = req.body.gambar;
 
-    sqlite.run('UPDATE olahraga set nama = ?, jenis = ?, rekomendasi_waktu = ? WHERE id = ?', [nama,jenis,rekomendasi_waktu,sport_id], (error,rows,fields) => {
+    sqlite.run('UPDATE olahraga set nama = ?, jenis = ?, rekomendasi_waktu = ?, gambar = ? WHERE id = ?', [nama,jenis,rekomendasi_waktu,gambar,sport_id], (error,rows,fields) => {
         if(error){
             res.status(404)
             response.ok("Gagal mengubah olahraga", res)
