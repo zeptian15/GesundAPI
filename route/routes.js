@@ -7,6 +7,7 @@ module.exports = (app) => {
     var sports = require('../controller/SportController');
     var diseases = require('../controller/DiseaseController');
     var diets = require('../controller/DietController');
+    var tips = require('../controller/TipsController');
 
     // Users
     app.route('/')
@@ -90,5 +91,10 @@ module.exports = (app) => {
 
     app.route('/diets')
     .delete(diets.deleteDiets);
+
+    // Tips
+    app.route('/tips')
+    .get(tips.tips)
+    
     
 };
