@@ -8,6 +8,7 @@ module.exports = (app) => {
     var diseases = require('../controller/DiseaseController');
     var diets = require('../controller/DietController');
     var tips = require('../controller/TipsController');
+    var random = require('../controller/RandomRecomendation');
 
     // Users
     app.route('/')
@@ -94,7 +95,16 @@ module.exports = (app) => {
 
     // Tips
     app.route('/tips')
-    .get(tips.tips)
+    .get(tips.tips);
     
+    // Random Recomendation
+    app.route('/random/foods')
+    .get(random.getRandomRecomendationMakanan);
+
+    app.route('/random/diets')
+    .get(random.getRandomRecomendationDiet);
+
+    app.route('/random/sports')
+    .get(random.getRandomRecomendationOlahraga);
     
 };
