@@ -1,33 +1,18 @@
 'use strict';
 
 module.exports = (app) => {
-    // Controller
-    var users = require('../controller/UsersController');
-    var foods = require('../controller/FoodController');
-    var sports = require('../controller/SportController');
-    var diseases = require('../controller/DiseaseController');
-    var diets = require('../controller/DietController');
-    var tips = require('../controller/TipsController');
-    var random = require('../controller/RandomRecomendation');
+    // Kumpulan Controller
+    var home = require('../controllers/HomeController');
+    var foods = require('../controllers/FoodController');
+    var sports = require('../controllers/SportController');
+    var diseases = require('../controllers/DiseaseController');
+    var diets = require('../controllers/DietController');
+    var tips = require('../controllers/TipsController');
+    var random = require('../controllers/RandomRecomendation');
 
-    // Users
+    // Halaman Home
     app.route('/')
-        .get(users.index);
-
-    // app.route('/users')
-    //     .get(users.users);
-
-    // app.route('/users/:user_id')
-    //     .get(users.findUsers);
-
-    // app.route('/users')
-    //     .post(users.createUsers);
-
-    // app.route('/users')
-    //     .put(users.updateUsers);
-
-    // app.route('/users')
-    //     .delete(users.deleteUsers);
+        .get(home.index);
 
     // Food 
     app.route('/foods')
@@ -35,15 +20,6 @@ module.exports = (app) => {
 
     app.route('/foods/:food_id')
         .get(foods.findFoods);
-    
-    app.route('/foods')
-        .post(foods.createFoods);
-
-    app.route('/foods')
-        .put(foods.updateFoods);
-    
-    app.route('/foods')
-        .delete(foods.deleteFoods);
 
     // Sport
     app.route('/sports')
@@ -52,14 +28,6 @@ module.exports = (app) => {
     app.route('/sports/:sport_id')
         .get(sports.findSports);
 
-    app.route('/sports')
-        .post(sports.createSports);
-
-    app.route('/sports')
-        .put(sports.updateSports);
-
-    app.route('/sports')
-        .delete(sports.deleteSports);
 
     // Diseases
     app.route('/diseases')
@@ -68,43 +36,27 @@ module.exports = (app) => {
     app.route('/diseases/:diseases_id')
         .get(diseases.findDiseases);
 
-    app.route('/diseases')
-        .post(diseases.createDiseases);
-
-    app.route('/diseases')
-        .put(diseases.updateDiseases);
-
-    app.route('/diseases')
-        .delete(diseases.deleteDiseases);
 
     // Diet
     app.route('/diets')
-    .get(diets.diets);
+        .get(diets.diets);
 
     app.route('/diets/:diet_id')
-    .get(diets.findDiets);
+        .get(diets.findDiets);
 
-    app.route('/diets')
-    .post(diets.createDiets);
-
-    app.route('/diets')
-    .put(diets.updateDiets);
-
-    app.route('/diets')
-    .delete(diets.deleteDiets);
 
     // Tips
     app.route('/tips')
-    .get(tips.tips);
-    
+        .get(tips.tips);
+
     // Random Recomendation
     app.route('/random/foods')
-    .get(random.getRandomRecomendationMakanan);
+        .get(random.getRandomRecomendationMakanan);
 
     app.route('/random/diets')
-    .get(random.getRandomRecomendationDiet);
+        .get(random.getRandomRecomendationDiet);
 
     app.route('/random/sports')
-    .get(random.getRandomRecomendationOlahraga);
-    
+        .get(random.getRandomRecomendationOlahraga);
+
 };
